@@ -1,0 +1,65 @@
+.ModalOverlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgb(0 0 0 / 75%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 1s ease,
+		visibility 1s ease;
+}
+
+.ModalOverlay.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Анимация для появления модального окна */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Анимация для скрытия модального окна */
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+}
+
+/* Стиль для контента модального окна */
+.ModalContent {
+	/* background: rgba(255, 255, 255, 0.363); */
+	padding: 20px;
+	border-radius: 4px;
+	width: 500px; /* Ширина формы */
+	max-width: 90%; /* Максимальная ширина */
+
+	/* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+	opacity: 0;
+	transform: translateY(-50px);
+	animation: fadeIn 1s forwards;
+	transition:
+		opacity 1s ease,
+		transform 1s ease;
+}
+
+.ModalContent.hide {
+	animation: fadeOut 1s forwards;
+}
