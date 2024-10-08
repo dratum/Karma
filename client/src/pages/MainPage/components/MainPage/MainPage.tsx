@@ -23,7 +23,7 @@ export default function MainPage() {
           <Link to={"/bid-form"}>
             <Button label={"Нужна помощь"} />
           </Link>
-          <Link to={"/bids-list"}>
+          <Link to={"/bids-list-page"}>
             <Button label={"Хочу помочь"} />
           </Link>
         </div>

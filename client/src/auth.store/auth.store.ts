@@ -5,86 +5,105 @@ import axios from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 
 export default class AuthStore {
-  user = {} as IUser
-  isAuth = false
-  isLoading = false
+  user = {} as IUser;
+  isAuth = false;
+  isLoading = false;
 
   constructor() {
-    makeAutoObservable(this)
+    makeAutoObservable(this);
   }
 
   setAuth(bool: boolean) {
-    this.isAuth = bool
+    this.isAuth = bool;
   }
 
   setUser(user: IUser) {
-    this.user = user
+    this.user = user;
   }
 
   setLoading(bool: boolean) {
-    this.isLoading = bool
+    this.isLoading = bool;
   }
 
   async login(email: string, password: string) {
     try {
-      const response = await AuthService.login(email, password)
-      localStorage.setItem('token', response.data.accessToken)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      localStorage.setItem('userId', response.data.user.id)
-      this.setAuth(true)
-      this.setUser(response.data.user)
-      window.location.assign('/')
+      const response = await AuthService.login(email, password);
+      localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("userId", response.data.user.id);
+      this.setAuth(true);
+      this.setUser(response.data.user);
+
+      window.location.assign("/");
     } catch (error) {
       console.log('Что-то пошло не так в файле "auth.store.ts, метод login.');
     }
   }
 
-  async registration(name: string, dateOfBirth: string, email: string, password: string, phone: string) {
+  async registration(
+    name: string,
+    dateOfBirth: string,
+    email: string,
+    password: string,
+    phone: string
+  ) {
     try {
-      const response = await AuthService.registration(name, dateOfBirth, email, password, phone)
+      const response = await AuthService.registration(
+        name,
+        dateOfBirth,
+        email,
+        password,
+        phone
+      );
       console.log(response);
-      localStorage.setItem('token', response.data.accessToken)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      localStorage.setItem('userId', response.data.user.id)
-      this.setAuth(true)
-      this.setUser(response.data.user)
-      window.location.assign('/')
+      localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("userId", response.data.user.id);
+      this.setAuth(true);
+      this.setUser(response.data.user);
+      window.location.assign("/");
     } catch (error) {
-      console.log('Что-то пошло не так в файле "auth.store.ts, метод registration.');
-
+      console.log(
+        'Что-то пошло не так в файле "auth.store.ts, метод registration.'
+      );
     }
   }
 
   async logout() {
     try {
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
-      localStorage.removeItem('userId')
-      await AuthService.logout()
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.removeItem("userId");
+      await AuthService.logout();
 
-      this.setAuth(false)
-      this.setUser({} as IUser)
+      this.setAuth(false);
+      this.setUser({} as IUser);
     } catch (error) {
       console.log('Что-то пошло не так в файле "auth.store.ts, метод logout.');
     }
   }
 
   async checkAuth() {
-    this.isLoading = true
+    this.isLoading = true;
     try {
-      const response = await axios.get<AuthResponse>(`${import.meta.env.VITE_REACT_APP_API_URL}/refresh`, {
-        withCredentials: true
-      })
-      
-      localStorage.setItem('token', response.data.accessToken)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      localStorage.setItem('userId', response.data.user.id)
-      this.setAuth(true)
-      this.setUser(response.data.user)
+      const response = await axios.get<AuthResponse>(
+        `${import.meta.env.VITE_REACT_APP_API_URL}/refresh`,
+        {
+          withCredentials: true,
+        }
+      );
+
+      localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("userId", response.data.user.id);
+      this.setAuth(true);
+      this.setUser(response.data.user);
     } catch (error) {
-      console.log('Что-то пошло не так в файле "auth.store.ts, метод checkAuth.');
+      console.log(
+        'Что-то пошло не так в файле "auth.store.ts, метод checkAuth.'
+      );
     } finally {
-      this.setLoading(false)
+      this.setLoading(false);
     }
   }
 }

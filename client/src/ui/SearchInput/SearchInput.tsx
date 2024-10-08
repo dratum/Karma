@@ -1,10 +1,10 @@
-export default function SearchInput({ ...props }): JSX.Element {
+export default function SearchInput({ ...props }) {
   return (
     <div className={"flex flex-col justify-center w-[350px]"}>
       <label className='ml-10 font-light' htmlFor={"search"}>
         Введите ключевое слово:
       </label>
-      <div className='flex flex-row  gap-x-2'>
+      <div className='flex flex-row gap-x-2'>
         <img src='/svg/search.svg' className='w-8' alt='input' />
         <input
           id={"search"}

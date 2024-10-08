@@ -4,7 +4,10 @@ import { useAppDispatch } from "../../../../hooks/redux.ts";
 import ButtonResponse from "../../ButtonResponse/ButtonResponse.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store/store.ts";
-import { likeBid, unlikeBid } from "../../../../features/likeBidsSlice.ts";
+import {
+  likeBid,
+  unlikeBid,
+} from "../../../modules/BidList/store/features/likeBidsSlice.ts";
 import { useEffect, useState } from "react";
 import $api from "../../../http";
 import "./Bid.styles.css";

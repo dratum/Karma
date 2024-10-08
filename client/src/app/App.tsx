@@ -1,10 +1,9 @@
 import "./App.css";
 
 import BidForm from "../components/BidForm/BidForm.tsx";
-import MainPage from "../pages/MainPage/index.ts";
-import { Route, Routes } from "react-router";
+import { MainPage } from "../pages/MainPage/index.ts";
+import { BidsListPage } from "../pages/BidsListPage/index.ts";
 import ProfileBidPage from "../components/ProfilePage/ProfileBidPage.tsx";
-import BidList from "../components/BidList/BidList.tsx";
 import ProfilePage from "../components/ProfilePage/ProfilePage.tsx";
 import ProfileBioPage from "../components/ProfilePage/ProfileBioPage.tsx";
 import ProfileActiveBidPage from "../components/ProfilePage/ProfileActiveBidPage.tsx";
@@ -18,6 +17,7 @@ import BidPage from "../components/Pages/BidPage.tsx";
 import CertificateList from "../components/Certificate/CertificateList.tsx";
 import LoginPage from "../pages/LoginPage/index.ts";
 import RegistrationPage from "../pages/RegistrationPage/components/RegisterPage.tsx";
+import { Route, Routes } from "react-router";
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
         <Route index element={<MainPage />} />
         <Route path={"/login"} element={<LoginPage />} />
         <Route path={"/register"} element={<RegistrationPage />} />
+        <Route path={"/bids-list-page"} element={<BidsListPage />} />
         <Route path={"/bid-form"} element={<BidForm />} />
-        <Route path={"/bids-list"} element={<BidList />} />
         <Route path={"/profile"} element={<ProfilePage />} />
         <Route path={"/profile/bio"} element={<ProfileBioPage />} />
         <Route path={"/profile/bid"} element={<ProfileBidPage />} />
