@@ -1,8 +1,6 @@
 import { BioProfileType } from "../../types";
 
 export default function UserScoresWidget({ user }: { user: BioProfileType }) {
-  console.log(user);
-
   return (
     <div className={"flex flex-col items-center"}>
       <div className='w-72 h-72 rounded-full shadow-lg border-green-500 text-center bg-white bg-opacity-55'>

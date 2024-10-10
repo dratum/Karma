@@ -1,6 +1,5 @@
 import { useState } from "react";
 import EditProfileDataForm from "../../EditProfileDataForm";
-import iconProfilePhoto from "../../profilePhoto.png";
 import { UserDataType } from "../../types";
 import { useAppDispatch } from "../../../../../hooks/redux";
 import { updateUser } from "../../../../../features/userEditProfileSlice";
@@ -20,12 +19,12 @@ export default function UserDataWidget({ user }: { user: UserDataType }) {
   return (
     <div
       className={
-        "rounded-md shadow-lg p-4 flex flex-col items-center bg-white bg-opacity-55"
+        "rounded-md shadow-lg p-4 flex flex-col items-center bg-white bg-opacity-55 "
       }
     >
       <img
         className={"h-44 rounded-full"}
-        src={iconProfilePhoto}
+        src='/public/img/profilePhoto.png'
         alt='user picture'
         loading='lazy'
       />
