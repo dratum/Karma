@@ -1,11 +1,11 @@
 export interface BioProfileType {
   id?: number;
-  fio: string;
-  date_of_birth: Date; //???
+  fio?: string;
+  date_of_birth?: Date; //???
   email: string;
-  password: string;
-  phone: string;
-  scores: number;
+  password?: string;
+  phone?: string;
+  scores?: number;
 }
 
 export type UserDataType = {
