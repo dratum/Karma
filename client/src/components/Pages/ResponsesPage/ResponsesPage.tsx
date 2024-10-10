@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
 import { useEffect } from "react";
-import ProfilePage from "../../ProfilePage/ProfilePage.tsx";
+import ProfilePage from "../../ProfilePageWidgets/NavBar.tsx";
 import BidResponse from "../../Bid/BidResponse.tsx";
 import { getResponses } from "../../../../features/userResponseSlice.ts";
 

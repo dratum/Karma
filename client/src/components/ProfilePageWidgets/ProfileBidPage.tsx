@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./NavBar";
 
 function ProfileBidPage(): JSX.Element {
   const activeLink = "text-lime-600 rounded-lg border-lime-600 border-2";

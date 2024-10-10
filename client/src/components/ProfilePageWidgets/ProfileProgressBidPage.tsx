@@ -1,4 +1,4 @@
-import ProfileBidPage from "./ProfileBidPage";
+import ProfileBidPage from "./ProfileBidPage.tsx";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux.ts";
 import { useEffect } from "react";
 import { getUserBidsProgress } from "../../../features/bidsUserSlice.ts";

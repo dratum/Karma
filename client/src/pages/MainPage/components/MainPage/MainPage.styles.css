@@ -1,14 +1,13 @@
 .start-el {
-	opacity: 0;
-	animation: ani 1.5s forwards;
+  opacity: 0;
+  animation: ani 1.5s forwards;
 }
 
 @keyframes ani {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

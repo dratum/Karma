@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../../../ui/headers/Header";
 import { useAppDispatch } from "../../../../hooks/redux";
-import { filterBids } from "../../../../features/bidsSlice";
+import { filterBids } from "../store/feature/bidsSlice";
 import SearchInput from "../../../ui/SearchInput/SearchInput";
 import Button from "../../../ui/buttons/ButtonsWithIcons/Button";
 import { useState } from "react";

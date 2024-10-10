@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ProfileBidPage from "./ProfileBidPage";
+import ProfileBidPage from "./ProfileBidPage.tsx";
 import CompleteBid from "../Bid/CompleteBid.tsx";
 
 export type BidProfileType = {

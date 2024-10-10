@@ -3,12 +3,12 @@ import "./App.css";
 import BidForm from "../components/BidForm/BidForm.tsx";
 import { MainPage } from "../pages/MainPage/index.ts";
 import { BidsListPage } from "../pages/BidsListPage/index.ts";
-import ProfileBidPage from "../components/ProfilePage/ProfileBidPage.tsx";
-import ProfilePage from "../components/ProfilePage/ProfilePage.tsx";
-import ProfileBioPage from "../components/ProfilePage/ProfileBioPage.tsx";
-import ProfileActiveBidPage from "../components/ProfilePage/ProfileActiveBidPage.tsx";
-import ProfileProgressBidPage from "../components/ProfilePage/ProfileProgressBidPage.tsx";
-import ProfileCompleteBidPage from "../components/ProfilePage/ProfileCompleteBidPage.tsx";
+import ProfileBidPage from "../components/ProfilePageWidgets/ProfileBidPage.tsx";
+import ProfilePage from "../components/ProfilePageWidgets/NavBar.tsx";
+import ProfileBioPage from "../components/ProfilePageWidgets/ProfileDashboard.tsx";
+import ProfileActiveBidPage from "../components/ProfilePageWidgets/ProfileActiveBidPage.tsx";
+import ProfileProgressBidPage from "../components/ProfilePageWidgets/ProfileProgressBidPage.tsx";
+import ProfileCompleteBidPage from "../components/ProfilePageWidgets/ProfileCompleteBidPage.tsx";
 import MapComponent from "../components/Map/Map.tsx";
 import Navbar from "../components/Navbar/Navbar.tsx";
 import ChatPage from "../components/ChatPage/ChatPage.tsx";
@@ -28,9 +28,10 @@ function App() {
         <Route path={"/login"} element={<LoginPage />} />
         <Route path={"/register"} element={<RegistrationPage />} />
         <Route path={"/bids-list-page"} element={<BidsListPage />} />
+        <Route path={"/profile/bio"} element={<ProfileBioPage />} />
+
         <Route path={"/bid-form"} element={<BidForm />} />
         <Route path={"/profile"} element={<ProfilePage />} />
-        <Route path={"/profile/bio"} element={<ProfileBioPage />} />
         <Route path={"/profile/bid"} element={<ProfileBidPage />} />
         <Route path={"profile/responses"} element={<ResponsesPage />} />
         <Route

@@ -5,8 +5,8 @@ import Button from "../../../../ui/buttons/Button.tsx";
 
 export default function MainPage() {
   return (
-    <div className='flex flex-wrap items-center justify-around'>
-      <div className='flex flex-col items-start'>
+    <div className='start-el flex flex-wrap items-center justify-around'>
+      <div className=' flex flex-col items-start'>
         <img width={"400em"} src='/svg/logo2.svg' alt='main-logo' />
         <span className='font-normal text-gray-600 tracking-wide'>
           Сервис, объединяющий людей через добрые дела.

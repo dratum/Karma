@@ -5,39 +5,39 @@
 @tailwind utilities;
 
 #root {
-	padding: 0 !important;
+  padding: 0 !important;
 }
 
 :root {
-	font-family: Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-	font-synthesis: none;
-	text-rendering: optimizelegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	width: 100vw;
-	min-width: 320px;
-	min-height: 100vh;
-	background: rgb(247 249 239);
-	background: linear-gradient(
-		166deg,
-		rgb(247 249 239 / 100%) 0%,
-		rgb(215 238 209 / 100%) 46%,
-		rgb(109 223 102 / 100%) 100%
-	);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-width: 320px;
+  min-height: 100vh;
+  background: rgb(247 249 239);
+  background: linear-gradient(
+    166deg,
+    rgb(247 249 239 / 100%) 0%,
+    rgb(215 238 209 / 100%) 46%,
+    rgb(109 223 102 / 100%) 100%
+  );
 }
 
 button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
 }

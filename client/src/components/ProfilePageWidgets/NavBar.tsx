@@ -1,17 +1,14 @@
 import { NavLink } from "react-router-dom";
+import Header from "../../ui/headers/Header";
 
-function ProfilePage(): JSX.Element {
+export default function NavBar() {
   const activeLink = "text-lime-600";
   const normalLink =
     "text-gray-600 hover:text-[#51B85B] transition ease-in-out duration-100";
 
   return (
-    <div className=''>
-      <div className={"flex items-center justify-center mb-8"}>
-        <h2 className='profile-page-title text-4xl tracking-wide font-normal leading-relaxed'>
-          Личный кабинет
-        </h2>
-      </div>
+    <>
+      <Header label={"Личный кабинет"} />
       <div className='flex justify-center'>
         <div className='flex flex-row justify-around gap-x-10 bg-white bg-opacity-55 shadow-md rounded-xl w-[1100px]'>
           <NavLink
@@ -40,8 +37,6 @@ function ProfilePage(): JSX.Element {
           </NavLink>
         </div>
       </div>
-    </div>
+    </>
   );
 }
-
-export default ProfilePage;
