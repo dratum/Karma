@@ -1,7 +1,7 @@
 export interface BioProfileType {
   id?: number;
   fio?: string;
-  date_of_birth?: Date; //???
+  date_of_birth?: Date | string;
   email: string;
   password?: string;
   phone?: string;

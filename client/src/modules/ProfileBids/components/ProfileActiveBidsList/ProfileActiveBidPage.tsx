@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import ActiveBid from "../Bid/ActiveBid.tsx";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux.ts";
-import { getUserBids } from "../../../features/bidsUserSlice.ts";
+import ActiveBid from "../../../../components/Bid/ActiveBid.tsx";
+import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux.ts";
+import { getUserBids } from "../../../../../features/bidsUserSlice.ts";
 
 function ProfileActiveBidPage(): JSX.Element {
   const bids = useAppSelector((state) => state.userBids.list);

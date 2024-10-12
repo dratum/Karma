@@ -2,11 +2,11 @@ import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
 import { useEffect } from "react";
 import BidResponse from "../../Bid/BidResponse.tsx";
 import { getResponses } from "../../../../features/userResponseSlice.ts";
+import { userId } from "../../../constants/const.ts";
 
 export default function ResponsesPage() {
   const dispatch = useAppDispatch();
   const responses = useAppSelector((state) => state.responseBid.bids);
-  const userId: string | null = localStorage.getItem("userId"); // TODO: можно попробовать вынести в отдельный файл.
 
   useEffect(() => {
     dispatch(getResponses());

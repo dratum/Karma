@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux.ts";
+import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux.ts";
 import { useEffect } from "react";
-import { getUserBidsProgress } from "../../../features/bidsUserSlice.ts";
-import BidProgress from "../Bid/BidInProgress.tsx";
+import { getUserBidsProgress } from "../../../../../features/bidsUserSlice.ts";
+import BidProgress from "../../../../components/Bid/BidInProgress.tsx";
 
 function ProfileProgressBidPage(): JSX.Element {
   const bids = useAppSelector((state) => {

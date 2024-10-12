@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../main";
 import { useContext, useState } from "react";
+import { activeLink, normalLink } from "../constants/links";
 
 export default function Navbar() {
   const { authStore } = useContext(AuthContext);
@@ -8,10 +9,6 @@ export default function Navbar() {
   const [navBarState, setNavBarState] = useState<boolean>(false);
   const location = useLocation();
   const isActive = location.pathname.startsWith("/profile");
-
-  const activeLink = "text-[#249C30]";
-  const normalLink =
-    "text-[#515066] hover:text-[#51B85B] transition ease-in-out duration-100";
 
   return (
     <header className='sticky inset-x-0 top-0 pt-5 pl-2 pr-2 pb-5 px-10 z-10'>
