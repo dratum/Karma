@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import ProfileBidPage from "./ProfileBidPage.tsx";
 import ActiveBid from "../Bid/ActiveBid.tsx";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux.ts";
 import { getUserBids } from "../../../features/bidsUserSlice.ts";
@@ -14,7 +13,6 @@ function ProfileActiveBidPage(): JSX.Element {
 
   return (
     <>
-      <ProfileBidPage />
       <div className='flex justify-center '>
         <div className={" flex flex-col mt-10 gap-y-5 w-[1400px]"}>
           {bids && bids.length ? (

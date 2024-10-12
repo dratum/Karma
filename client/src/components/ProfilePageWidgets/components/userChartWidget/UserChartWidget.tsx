@@ -104,7 +104,7 @@ export default function UserChartWidget({
   return (
     <>
       {completedOrders > 0 || totalOrders > 0 ? (
-        <div className='ml-8'>
+        <div className='ml-8 flex flex-col'>
           <h2 className='text-2xl font-bold mb-8'>
             Диаграмма Вашей активности
           </h2>

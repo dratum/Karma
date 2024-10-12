@@ -1,10 +1,10 @@
 import { useState } from "react";
-import EditProfileDataForm from "../../EditProfileDataForm";
+import EditProfileDataForm from "../editProfileDataForm/EditProfileDataForm";
 import { UserDataType } from "../../types";
 import { useAppDispatch } from "../../../../../hooks/redux";
 import { updateUser } from "../../../../../features/userEditProfileSlice";
 import Button from "../../../../ui/buttons/Button";
-import UserProfileData from "../../../../ui/userProfileData/userProfileData";
+import UserProfileData from "../../../../ui/userProfileData/UserProfileData";
 
 export default function UserDataWidget({ user }: { user: UserDataType }) {
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ export default function UserDataWidget({ user }: { user: UserDataType }) {
     >
       <img
         className={"h-44 rounded-full"}
-        src='/public/img/profilePhoto.png'
+        src='/img/profilePhoto.png'
         alt='user picture'
         loading='lazy'
       />

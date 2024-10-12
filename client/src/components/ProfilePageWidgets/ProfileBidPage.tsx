@@ -1,14 +1,12 @@
-import { NavLink } from "react-router-dom";
-import ProfilePage from "./NavBar";
+import { NavLink, Outlet } from "react-router-dom";
 
-function ProfileBidPage(): JSX.Element {
+function ProfileBidPage() {
   const activeLink = "text-lime-600 rounded-lg border-lime-600 border-2";
   const normalLink =
     "text-gray-600 hover:text-[#51B85B] transition ease-in-out duration-100";
 
   return (
     <>
-      <ProfilePage />
       <div className='flex flex-row mx-10 mt-8'>
         <NavLink
           className={({ isActive }) => (isActive ? activeLink : normalLink)}
@@ -30,6 +28,7 @@ function ProfileBidPage(): JSX.Element {
           <button>Закрытые заявки</button>
         </NavLink>
       </div>
+      <Outlet />
     </>
   );
 }

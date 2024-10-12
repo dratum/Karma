@@ -1,11 +1,11 @@
-import { UserDataType } from "./types";
-import { useAppDispatch } from "../../../hooks/redux";
+import { UserDataType } from "../../types";
+import { useAppDispatch } from "../../../../../hooks/redux";
 import {
   saveUserData,
   updateUser,
-} from "../../../features/userEditProfileSlice";
-import { userId } from "../../constants/const";
-import Button from "../../ui/buttons/Button";
+} from "../../../../../features/userEditProfileSlice";
+import { userId } from "../../../../constants/const";
+import Button from "../../../../ui/buttons/Button";
 import { useState } from "react";
 
 interface EditProfileDataFormProps {

@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
-import Header from "../../ui/headers/Header";
+import { NavLink, useLocation } from "react-router-dom";
+import Header from "../../../ui/headers/Header";
+import { activeLink, normalLink } from "../constants/links";
 
 export default function NavBar() {
-  const activeLink = "text-lime-600";
-  const normalLink =
-    "text-gray-600 hover:text-[#51B85B] transition ease-in-out duration-100";
+  const location = useLocation();
+
+  const isActive = location.pathname.startsWith("/profile/bid");
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function NavBar() {
             <button>Мои данные</button>
           </NavLink>
           <NavLink
-            className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            className={isActive ? activeLink : normalLink}
             to={"/profile/bid/active"}
           >
             <button>Мои заявки</button>
@@ -31,7 +32,7 @@ export default function NavBar() {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? activeLink : normalLink)}
-            to={"/certificates"}
+            to={"/profile/certificates"}
           >
             <button>Потратить очки</button>
           </NavLink>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ProfileBidPage from "./ProfileBidPage.tsx";
 import CompleteBid from "../Bid/CompleteBid.tsx";
+import { userId } from "../../constants/const.ts";
 
 export type BidProfileType = {
   id: number;
@@ -14,7 +14,6 @@ export type BidProfileType = {
 
 export default function ProfileCompleteBidPage(): JSX.Element {
   const [completeBids, setCompleteBids] = useState<BidProfileType[]>([]);
-  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     axios(`${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/complete`, {
@@ -24,7 +23,6 @@ export default function ProfileCompleteBidPage(): JSX.Element {
 
   return (
     <>
-      <ProfileBidPage />
       <div className='flex justify-center '>
         <div className={"flex flex-col mt-10 gap-y-5 w-[1400px]"}>
           {completeBids && completeBids.length ? (

@@ -2,17 +2,35 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import $api from "../src/http";
 import { UserDataType } from "../src/components/ProfilePageWidgets/types";
 interface UserState {
-  user: UserDataType | null;
+  user: UserDataType;
 }
 
 const initialState: UserState = {
-  user: null,
+  user: {} as UserDataType,
 };
+
+export const getUser = createAsyncThunk(
+  "user/getUser",
+  async (userId: string | null, { rejectWithValue }) => {
+    try {
+      const user = await $api(
+        `${import.meta.env.VITE_REACT_APP_API_URL}/profile`,
+        {
+          params: { userId },
+        }
+      );
+      return user.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const saveUserData = createAsyncThunk(
   "user/saveUserData",
   async ({ fio, email, phone, userId }: UserDataType, { rejectWithValue }) => {
     try {
-      const response = await $api.post(
+      await $api.post(
         `${import.meta.env.VITE_REACT_APP_API_URL}/profile/date`,
         {
           fio,
@@ -21,8 +39,7 @@ export const saveUserData = createAsyncThunk(
           userId,
         }
       );
-      console.log("Данные успешно сохранены на сервере");
-      return response.data; // Возвращаем данные, если нужно
+      return;
     } catch (error) {
       console.error("Произошла ошибка при отправке данных на сервер:", error);
       return rejectWithValue("Ошибка при сохранении данных на сервере");
@@ -34,9 +51,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     updateUser(state, action: PayloadAction<UserDataType>) {
-      console.log("Updating user:", action.payload);
-      state.user = action.payload; // Обновляем весь объект пользователя
+      state.user = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+    });
   },
 });
 

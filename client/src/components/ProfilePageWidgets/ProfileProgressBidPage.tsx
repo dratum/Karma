@@ -1,4 +1,3 @@
-import ProfileBidPage from "./ProfileBidPage.tsx";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux.ts";
 import { useEffect } from "react";
 import { getUserBidsProgress } from "../../../features/bidsUserSlice.ts";
@@ -16,7 +15,6 @@ function ProfileProgressBidPage(): JSX.Element {
 
   return (
     <>
-      <ProfileBidPage />
       <div className='flex justify-center '>
         <div className={"flex flex-col mt-10 gap-y-5 w-[1400px]"}>
           {bids && bids.length ? (

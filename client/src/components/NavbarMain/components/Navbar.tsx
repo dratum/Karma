@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../main";
+import { NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../main";
 import { useContext, useState } from "react";
 
-const Navbar = () => {
+export default function Navbar() {
   const { authStore } = useContext(AuthContext);
   const token = localStorage.getItem("token");
   const [navBarState, setNavBarState] = useState<boolean>(false);
+  const location = useLocation();
+  const isActive = location.pathname.startsWith("/profile");
 
   const activeLink = "text-[#249C30]";
   const normalLink =
@@ -46,9 +48,7 @@ const Navbar = () => {
 
               <button type='button'>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
+                  className={isActive ? activeLink : normalLink}
                   to='/profile/bio'
                 >
                   Моя страница
@@ -128,6 +128,4 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
-
-export default Navbar;
+}

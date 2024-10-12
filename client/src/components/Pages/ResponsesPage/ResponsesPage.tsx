@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
 import { useEffect } from "react";
-import ProfilePage from "../../ProfilePageWidgets/NavBar.tsx";
 import BidResponse from "../../Bid/BidResponse.tsx";
 import { getResponses } from "../../../../features/userResponseSlice.ts";
 
@@ -15,7 +14,6 @@ export default function ResponsesPage() {
 
   return (
     <>
-      <ProfilePage />
       <div className='flex justify-center '>
         <div className={"flex flex-col mt-10 gap-y-5 w-[1400px]"}>
           {responses && responses.length ? (
