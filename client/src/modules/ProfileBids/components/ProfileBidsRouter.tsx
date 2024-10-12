@@ -12,7 +12,7 @@ export default function ProfileBidsRouter() {
           className={({ isActive }) => (isActive ? activeLink : normalLink)}
           to={"/profile/bid/active"}
         >
-          <button className=''>Активные заявки</button>
+          <button>Активные заявки</button>
         </NavLink>
 
         <NavLink
