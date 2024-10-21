@@ -30,7 +30,7 @@ export default function ProfileDashboard() {
     <>
       <div
         className={
-          "flex flex-col gap-y-4 items-center justify-evenly mt-12 lg:flex-row"
+          "flex flex-row flex-wrap md:flex-nowrap gap-y-4 items-center justify-around mt-12"
         }
       >
         <UserDataWidget user={user} />
