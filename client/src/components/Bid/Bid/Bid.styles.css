@@ -1,0 +1,23 @@
+.start-bid {
+	animation: example 1s ease-in-out;
+}
+
+@keyframes example {
+	0% {
+		transform: translateY(-80px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes example {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
