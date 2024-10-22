@@ -23,16 +23,14 @@ export default function ProfileCompleteBidPage(): JSX.Element {
 
   return (
     <>
-      <div className='flex justify-center '>
+      <div className='flex justify-center'>
         <div className={"flex flex-col mt-10 gap-y-5 w-[1400px]"}>
           {completeBids && completeBids.length ? (
             completeBids.map((bid) => {
               return <CompleteBid key={bid.id} bid={bid} />;
             })
           ) : (
-            <div
-              className={"flex gap-x-5 justify-center items-center mt-[100px]"}
-            >
+            <div className={"flex w-[60rem] gap-x-5 items-center"}>
               <img className='w-10' src='/svg/question.png' />
               <h1 className={"text-xl"}>
                 Пока что еще нет завершенных заявок!

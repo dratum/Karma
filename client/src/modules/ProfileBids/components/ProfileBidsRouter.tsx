@@ -6,8 +6,8 @@ export default function ProfileBidsRouter() {
     "text-gray-600 hover:text-[#51B85B] transition ease-in-out duration-100";
 
   return (
-    <>
-      <div className='flex flex-row mx-10 mt-8'>
+    <div className='flex flex-wrap flex-row justify-evenly gap-x-5 mt-5'>
+      <div className='flex flex-col ml-5'>
         <NavLink
           className={({ isActive }) => (isActive ? activeLink : normalLink)}
           to={"/profile/bid/active"}
@@ -29,6 +29,6 @@ export default function ProfileBidsRouter() {
         </NavLink>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 }

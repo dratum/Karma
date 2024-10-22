@@ -2,11 +2,11 @@ import { useAppDispatch } from "../../../hooks/redux.ts";
 import { Bid, deleteUserBid } from "../../../features/bidsUserSlice.ts";
 import EditBidModal from "../UI/Modal/EditBidModal/EditBidModal.tsx";
 import { useState } from "react";
+import { userId } from "../../constants/const.ts";
 
 export default function ActiveBid({ bid }: { bid: Bid }) {
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const userId = localStorage.getItem("userId"); // TODO: можно попробовать вынести в отдельный файл.
 
   const deleteHandler = () => {
     dispatch(deleteUserBid({ bidId: bid.id, userId }));
@@ -16,7 +16,7 @@ export default function ActiveBid({ bid }: { bid: Bid }) {
     <>
       <div
         className={
-          "start-bid rounded-md bg-white p-3 text-left hover:scale-[1.02] transition duration-300 pl-8 shadow-md"
+          "w-[60rem] start-bid rounded-md bg-white p-3 text-left hover:scale-[1.02] transition duration-300 pl-8 shadow-md"
         }
       >
         <h3 className={"text-lg font-semibold tracking-wide leading-8"}>
