@@ -20,11 +20,11 @@ export function BidList({ dispatch }: ChildProps) {
   }, [dispatch]);
 
   return (
-    <div className='flex flex-col gap-y-5'>
+    <div className='flex flex-col gap-y-5 w-full max-w-[60rem]'>
       {bids && bids.length > 0 ? (
         bids.map((bid) => <Bid key={bid.id} bid={bid} userId={userId} />)
       ) : (
-        <NotFound />
+        <NotFound label={"Еще не создали ни одной заявки!"} />
       )}
     </div>
   );

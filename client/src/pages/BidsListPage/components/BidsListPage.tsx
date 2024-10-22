@@ -28,11 +28,11 @@ export default function BidsListPage() {
           <Button srcPath={"/img/add-post.png"} label={"Создать заявку"} />
         </Link>
       </div>
-      <div className='flex flex-row justify-around gap-x-72'>
+      <div className='flex justify-center gap-x-2 px-4'>
         <BidList dispatch={dispatch} />
         {showMap && (
           <div className='flex justify-end'>
-            <div className='fixed right-502 rounded-full shadow-md'>
+            <div className='rounded-full shadow-md'>
               <MapComponent />
             </div>
           </div>

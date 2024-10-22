@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CompleteBid from "../../../../components/Bid/CompleteBid.tsx";
 import { userId } from "../../../../constants/const.ts";
+import NotFound from "../../../../ui/notFound/NotFound.tsx";
 
 export type BidProfileType = {
   id: number;
@@ -24,20 +25,13 @@ export default function ProfileCompleteBidPage(): JSX.Element {
   return (
     <>
       <div className='flex justify-center'>
-        <div className={"flex flex-col mt-10 gap-y-5 w-[1400px]"}>
-          {completeBids && completeBids.length ? (
-            completeBids.map((bid) => {
-              return <CompleteBid key={bid.id} bid={bid} />;
-            })
-          ) : (
-            <div className={"flex w-[60rem] gap-x-5 items-center"}>
-              <img className='w-10' src='/svg/question.png' />
-              <h1 className={"text-xl"}>
-                Пока что еще нет завершенных заявок!
-              </h1>
-            </div>
-          )}
-        </div>
+        {completeBids && completeBids.length ? (
+          completeBids.map((bid) => {
+            return <CompleteBid key={bid.id} bid={bid} />;
+          })
+        ) : (
+          <NotFound label={"Пока что еще нет завершенных заявок!"} />
+        )}
       </div>
     </>
   );
