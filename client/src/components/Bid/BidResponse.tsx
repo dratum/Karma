@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import $api from "../../http/index.ts";
 import { BidType } from "../../pages/BidsListPage/store/feature/bidsSlice.ts";
+import Button from "../../ui/buttons/ButtonsWithIcons/Button.tsx";
 
 export default function BidResponse({
   response,
@@ -29,11 +30,12 @@ export default function BidResponse({
       params: { authorId: response.author_id },
     }).then((res) => setName(res.data));
   }, []);
+
   return (
     <>
       <div
         className={
-          "start-bid rounded-md bg-white text-left hover:scale-[1.02] transition duration-300 pl-8 shadow-md flex flex-col p-5 gap-y-2"
+          "start-bid rounded-md bg-white text-left hover:shadow-xl pl-8 shadow-md flex flex-col p-5 gap-y-2"
         }
       >
         <h3 className={"text-lg font-semibold tracking-wide leading-8"}>
@@ -55,23 +57,16 @@ export default function BidResponse({
           <div className={"flex items-end gap-x-5"}>
             <NavLink to={`/chat/?chat=${idResponse}&choise=${true}`}>
               <img
-                className={"w-10"}
+                className={"w-10 hover:shadow-md rounded-3xl"}
                 src={"/svg/MailOutlined.svg"}
                 alt='logo'
               />
             </NavLink>
-            {/*<img className={"w-10"} src={"/svg/PhoneOutlined.svg"} alt='logo' />*/}
-            <button
-              className={
-                "focus:outline-none size-26 text-sm transition duration-300 mt-3 rounded-md" +
-                " shadow-md border-lime-600 hover:bg-lime-600 hover:text-white" +
-                " bg-white text-lime-600 flex gap-x-2 items-center"
-              }
+            <Button
+              label='Отказать в помощи'
+              srcPath='/img/cancel.png'
               onClick={handlerClick}
-            >
-              <img src='/img/cancel.png' className='w-5' alt='' />
-              Отказать в помощи
-            </button>
+            />
           </div>
         </div>
       </div>

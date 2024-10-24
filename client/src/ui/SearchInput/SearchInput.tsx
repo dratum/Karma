@@ -1,6 +1,6 @@
 export default function SearchInput({ ...props }) {
   return (
-    <div className={"flex flex-col justify-center w-[350px]"}>
+    <div className={"flex flex-col justify-end"}>
       <label className='ml-10 font-light' htmlFor={"search"}>
         Введите ключевое слово:
       </label>

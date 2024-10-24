@@ -20,7 +20,7 @@ export default function Bid({
   userId: string | null;
 }) {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState(false);
+  const [description, setDescription] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const likes = useSelector(
     (state: RootState) =>
@@ -59,7 +59,7 @@ export default function Bid({
   return (
     <div
       className={
-        "start-bid rounded-md bg-white p-3 text-left hover:scale-[1.02] transition duration-300 pl-8 shadow-md"
+        "start-bid w-[60rem] rounded-md bg-white p-3 text-left hover:shadow-lg transition duration-300 pl-8 shadow-sm"
       }
     >
       <h3 className={"text-lg font-semibold tracking-wide leading-8"}>
@@ -94,7 +94,7 @@ export default function Bid({
       <div className={"flex justify-between items-center gap-x-3 -mt-3"}>
         <p className={"font-serif"}>{name}</p>
         <div className='ml-auto'>
-          <button onClick={handlerLike}>
+          <button onClick={handlerLike} className={hasLiked ? "has-liked" : ""}>
             {likes}
             <img src='/img/care.png' className='w-8' alt='like-image' />
           </button>

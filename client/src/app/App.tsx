@@ -20,6 +20,7 @@ import {
   ProfileCompleteBidPage,
   ProfileProgressBidPage,
 } from "../modules/ProfileBids/index.ts";
+import UserResponsesList from "../modules/ProfileResponses/index.ts";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
             <Route path={"progress"} element={<ProfileProgressBidPage />} />
             <Route path={"closed"} element={<ProfileCompleteBidPage />} />
           </Route>
-          <Route path={"responses"} element={<ResponsesPage />} />
+          <Route path={"responses"} element={<UserResponsesList />} />
           <Route path={"certificates"} element={<CertificateList />} />
         </Route>
         <Route path={"/map"} element={<MapComponent />} />

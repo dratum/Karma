@@ -10,6 +10,7 @@ interface Like {
 
 interface LikesState {
   likes: Like[];
+  totalLikes: number;
 }
 
 interface LikeBidPayload {
@@ -19,6 +20,7 @@ interface LikeBidPayload {
 
 const initialState: LikesState = {
   likes: [],
+  totalLikes: 0,
 };
 
 export const getLikes = createAsyncThunk("likes/getLikes", async () => {
@@ -65,15 +67,18 @@ const likeBidsSlice = createSlice({
     builder
       .addCase(getLikes.fulfilled, (state, action: PayloadAction<Like[]>) => {
         state.likes = action.payload;
+        state.totalLikes = action.payload.length;
       })
       .addCase(likeBid.fulfilled, (state, action: PayloadAction<Like>) => {
         state.likes.push(action.payload);
+        state.totalLikes += 1;
       })
       .addCase(unlikeBid.fulfilled, (state, action: PayloadAction<Like>) => {
         const { bids_id, userId } = action.payload;
         state.likes = state.likes.filter(
           (like) => like.bids_id !== bids_id && like.user_id !== Number(userId)
         );
+        state.totalLikes -= 1;
       });
   },
 });

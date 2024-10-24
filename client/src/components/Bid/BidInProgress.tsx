@@ -24,7 +24,7 @@ export default function BidProgress({ bid }: { bid: Bid }) {
     <>
       <div
         className={
-          "w-[60rem] start-bid rounded-md bg-white p-3 text-left hover:scale-[1.02] transition duration-300 pl-8 shadow-md"
+          "w-[60rem] start-bid rounded-md bg-white p-3 text-left hover:shadow-xl pl-8 shadow-md"
         }
       >
         <h3 className={"text-lg font-semibold tracking-wide leading-8"}>

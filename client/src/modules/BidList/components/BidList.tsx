@@ -20,7 +20,7 @@ export function BidList({ dispatch }: ChildProps) {
   }, [dispatch]);
 
   return (
-    <div className='flex flex-col gap-y-5 w-full max-w-[60rem]'>
+    <div className='flex flex-col items-center gap-y-5'>
       {bids && bids.length > 0 ? (
         bids.map((bid) => <Bid key={bid.id} bid={bid} userId={userId} />)
       ) : (
