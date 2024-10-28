@@ -17,8 +17,9 @@ export default function BidsListPage() {
   return (
     <div className='flex flex-col gap-y-5'>
       <Header label={"Список доступных заявок"} />
-      <div className='flex justify-around flex-row gap-x-5 mb-5'>
+      <div className='flex justify-around items-center flex-row gap-x-5 mb-5'>
         <SearchInput onChange={handleChange} />
+
         <Button
           label={"Показать на карте"}
           onClick={() => setShowMap((prev) => !prev)}

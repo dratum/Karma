@@ -1,9 +1,7 @@
 export default function SearchInput({ ...props }) {
   return (
     <div className={"flex flex-col justify-end"}>
-      <label className='ml-10 font-light' htmlFor={"search"}>
-        Введите ключевое слово:
-      </label>
+      <span className='ml-10 font-light'>Введите ключевое слово:</span>
       <div className='flex flex-row gap-x-2'>
         <img src='/svg/search.svg' className='w-8' alt='input' />
         <input
@@ -13,7 +11,7 @@ export default function SearchInput({ ...props }) {
           type={"text"}
           placeholder={"Начните печатать здесь..."}
           className={
-            "p-1.5 shadow-sm rounded-md block w-full border-0 py-1.5 pl-4" +
+            "p-1.5 shadow-sm rounded-md w-full border-0 py-1.5 pl-4" +
             " pr-20 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 " +
             "focus:ring-inset sm:text-sm sm:leading-6 h-10 outline-lime-500"
           }

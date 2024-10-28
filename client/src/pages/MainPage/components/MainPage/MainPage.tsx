@@ -5,7 +5,7 @@ import Button from "../../../../ui/buttons/Button.tsx";
 
 export default function MainPage() {
   return (
-    <div className='start-el flex flex-wrap items-center justify-around'>
+    <div className='start-el flex flex-wrap items-center justify-center'>
       <div className=' flex flex-col items-start'>
         <img width={"400em"} src='/svg/logo2.svg' alt='main-logo' />
         <span className='font-normal text-gray-600 tracking-wide'>
@@ -14,12 +14,12 @@ export default function MainPage() {
           Оказывайте безвозмедную помощь и зарабатывайте КАРМУ!
         </span>
         <div className='mt-5'>
-          <span className='text-6xl font-medium text-blue-700'>
+          <span className='lg font-normal text-blue-700'>
             Найдите исполнителя или <br />
             станьте исполнителем сами
           </span>
         </div>
-        <div className='flex justify-between w-full '>
+        <div className='flex justify-between gap-x-5 w-full '>
           <Link to={"/bid-form"}>
             <Button label={"Нужна помощь"} />
           </Link>
@@ -28,7 +28,7 @@ export default function MainPage() {
           </Link>
         </div>
       </div>
-      <div className=''>
+      <div>
         <img
           className='drop-shadow-md'
           width={"400em"}
