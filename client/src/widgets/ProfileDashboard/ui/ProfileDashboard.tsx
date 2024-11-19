@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { getOrders } from "../../../../features/userActivitySlice.ts";
 import { RootState } from "../../../../redux/store/store.ts";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
-import { userId } from "../../../constants/const.ts";
+import { userId } from "../../../shared/constants/const.ts";
 import { getUser } from "../../../../features/userEditProfileSlice.ts";
 import {
   UserChartWidget,

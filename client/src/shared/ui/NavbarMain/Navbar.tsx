@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { AuthContext } from "../../../main";
+import { AuthContext } from "../../../../main";
 import { useContext, useState } from "react";
 import { activeLink, normalLink } from "../constants/links";
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CompleteBid from "../../../../components/Bid/CompleteBid.tsx";
-import { userId } from "../../../../constants/const.ts";
+import { userId } from "../../../../shared/constants/const.ts";
 import NotFound from "../../../../ui/notFound/NotFound.tsx";
 
 export type BidProfileType = {

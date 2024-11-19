@@ -2,8 +2,8 @@ import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
 import { useEffect } from "react";
 import BidResponse from "../../../components/Bid/BidResponse.tsx";
 import { getResponses } from "../../../../features/userResponseSlice.ts";
-import { userId } from "../../../constants/const.ts";
-import NotFound from "../../../ui/notFound/NotFound.tsx";
+import { userId } from "../../../shared/constants/const.ts";
+import NotFound from "../../../shared/ui/notFound/NotFound.tsx";
 
 export default function UserResponsesList() {
   const dispatch = useAppDispatch();
