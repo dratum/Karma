@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Certificate.css";
-import $api from "../../http";
+import $api from "../../shared/api/http";
 
 interface Certificate {
   id: number;

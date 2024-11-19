@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CompleteBid from "../../../../components/Bid/CompleteBid.tsx";
 import { userId } from "../../../../shared/constants/const.ts";
-import NotFound from "../../../../ui/notFound/NotFound.tsx";
+import NotFound from "../../../../shared/ui/notFound/NotFound.tsx";
 
 export type BidProfileType = {
   id: number;
@@ -13,7 +13,7 @@ export type BidProfileType = {
   author_id: number;
 };
 
-export default function ProfileCompleteBidPage(): JSX.Element {
+export function ProfileCompleteBidPage(): JSX.Element {
   const [completeBids, setCompleteBids] = useState<BidProfileType[]>([]);
 
   useEffect(() => {

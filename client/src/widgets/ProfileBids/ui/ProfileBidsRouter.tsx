@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-export default function ProfileBidsRouter() {
+export function ProfileBidsRouter() {
   const activeLink = "text-lime-600 rounded-lg border-lime-600 border-2";
   const normalLink =
     "text-gray-600 hover:text-[#51B85B] transition ease-in-out duration-100";

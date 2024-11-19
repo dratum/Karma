@@ -1,25 +1,24 @@
 import { Link } from "react-router-dom";
-import Header from "../../../ui/headers/Header";
-import { useAppDispatch } from "../../../../hooks/redux";
-import { filterBids } from "../store/feature/bidsSlice";
-import SearchInput from "../../../ui/SearchInput/SearchInput";
-import Button from "../../../ui/buttons/ButtonsWithIcons/Button";
-import { useState } from "react";
-import MapComponent from "../../../components/Map/Map";
-import BidList from "../../../modules/BidList/index";
+import Header from "../../../shared/ui/headers/Header";
+import { useAppDispatch } from "../../../../hooks/redux.ts";
+import { filterBids } from "../store/feature/bidsSlice.ts";
+import SearchInput from "../../../shared/ui/SearchInput/SearchInput";
+import Button from "../../../shared/ui/buttons/ButtonsWithIcons/Button";
+import React, { useState } from "react";
+import MapComponent from "../../../components/Map/Map.tsx";
+import {BidList} from "./BidList";
 
-export default function BidsListPage() {
+export function BidsListPage() {
   const [showMap, setShowMap] = useState(false);
   const dispatch = useAppDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(filterBids(e.target.value));
   };
   return (
-    <div className='flex flex-col gap-y-5'>
+    <div className='flex flex-col items-center gap-y-5'>
       <Header label={"Список доступных заявок"} />
-      <div className='flex justify-around items-center flex-row gap-x-5 mb-5'>
+      <div className='flex justify-center items-end gap-x-5 mb-5 w-full'>
         <SearchInput onChange={handleChange} />
-
         <Button
           label={"Показать на карте"}
           onClick={() => setShowMap((prev) => !prev)}

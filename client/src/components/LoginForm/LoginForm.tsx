@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../main";
+import { AuthContext } from "../../main.tsx";
 import { Link } from "react-router-dom";
 
 function LoginForm() {

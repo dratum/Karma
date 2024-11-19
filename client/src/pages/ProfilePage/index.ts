@@ -1,3 +1,1 @@
-import ProfilePage from "./components/ProfilePage";
-
-export { ProfilePage };
+export { ProfilePage } from "./ui/ProfilePage.tsx";

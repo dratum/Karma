@@ -1,4 +1,3 @@
-import { BidType } from "../../../features/bidsSlice.ts";
 import { responseUserBid } from "../../../features/userResponseSlice.ts";
 import { useAppDispatch } from "../../../hooks/redux.ts";
 import ButtonResponse from "../ButtonResponse/ButtonResponse.tsx";
@@ -7,8 +6,9 @@ import { RootState } from "../../../redux/store/store.ts";
 import {
   likeBid,
   unlikeBid,
-} from "../../modules/BidList/store/features/likeBidsSlice.ts";
+} from "../../pages/BidsListPage/store/feature/likeBidsSlice.ts";
 import { useNavigate } from "react-router";
+import { BidType } from "../../pages/BidsListPage/store/feature/bidsSlice.ts";
 
 export default function Bid({
   bid,

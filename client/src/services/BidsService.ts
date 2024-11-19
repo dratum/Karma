@@ -1,4 +1,4 @@
-import $api from "../http";
+import $api from "../shared/api/http";
 import { Bid } from "../models/response/Bid.interface";
 
 export default class BidsServise {

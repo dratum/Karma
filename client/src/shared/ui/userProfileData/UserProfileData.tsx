@@ -1,4 +1,4 @@
-import { UserDataType } from "../../components/ProfilePageWidgets/types";
+import { UserDataType } from "../../../components/ProfilePageWidgets/types.ts";
 
 export default function UserProfileData({ user }: { user: UserDataType }) {
   return (

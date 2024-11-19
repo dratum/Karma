@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import ActiveBid from "../../../../components/Bid/ActiveBid.tsx";
 import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux.ts";
 import { getUserBids } from "../../../../../features/bidsUserSlice.ts";
-import NotFound from "../../../../ui/notFound/NotFound.tsx";
+import NotFound from "../../../../shared/ui/notFound/NotFound.tsx";
 
-function ProfileActiveBidPage(): JSX.Element {
+export function ProfileActiveBidPage(): JSX.Element {
   const bids = useAppSelector((state) => state.userBids.list);
   const dispatch = useAppDispatch();
 
@@ -26,5 +26,3 @@ function ProfileActiveBidPage(): JSX.Element {
     </>
   );
 }
-
-export default ProfileActiveBidPage;

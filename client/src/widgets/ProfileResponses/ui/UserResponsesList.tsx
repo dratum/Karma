@@ -5,7 +5,7 @@ import { getResponses } from "../../../../features/userResponseSlice.ts";
 import { userId } from "../../../shared/constants/const.ts";
 import NotFound from "../../../shared/ui/notFound/NotFound.tsx";
 
-export default function UserResponsesList() {
+export function UserResponsesList() {
   const dispatch = useAppDispatch();
   const responses = useAppSelector((state) => state.responseBid.bids);
 

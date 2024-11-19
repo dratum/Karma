@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import $api from "../src/shared/api/http";
+
 
 export interface Bid {
   id: number;
@@ -31,7 +32,7 @@ export const getUserBids = createAsyncThunk(
   "userBids/getUserBids",
   async (_, { rejectWithValue }) => {
     try {
-      const userBids = await axios(
+      const userBids = await $api(
         `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/active`,
         { params: { userId } }
       );
@@ -46,7 +47,7 @@ export const getUserBidsProgress = createAsyncThunk(
   "userBids/getUserBidsProgress",
   async (_, { rejectWithValue }) => {
     try {
-      const userBids = await axios(
+      const userBids = await $api(
         `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/progress`,
         { params: { userId } }
       );
@@ -61,11 +62,11 @@ export const completeUserBids = createAsyncThunk(
   "userBids/completeUserBids",
   async ({ bidId, userId }: UserBid, { rejectWithValue }) => {
     try {
-      await axios.put(
+      await $api.put(
         `${import.meta.env.VITE_REACT_APP_API_URL}/bids/${bidId}`,
         { status: "complete" }
       );
-      await axios.delete(
+      await $api.delete(
         `${import.meta.env.VITE_REACT_APP_API_URL}/responses/complete`,
         {
           data: {
@@ -84,7 +85,7 @@ export const completeUserBids = createAsyncThunk(
 export const deleteUserBid = createAsyncThunk(
   "userBids/deleteUserBids",
   async ({ bidId, userId }: UserBid) => {
-    await axios.delete(
+    await $api.delete(
       `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/${bidId}}`,
       {
         data: {
@@ -100,7 +101,7 @@ export const deleteUserBid = createAsyncThunk(
 export const editUserBid = createAsyncThunk(
   "userBids/editUserBids",
   async ({ id, title, description, address }: Bid) => {
-    const response = await axios.put(
+    const response = await $api.put(
       `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/${id}`,
       {
         id,

@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../../../hooks/redux.ts";
 import { useEffect } from "react";
 import BidResponse from "../../Bid/BidResponse.tsx";
 import { getResponses } from "../../../../features/userResponseSlice.ts";
-import { userId } from "../../../constants/const.ts";
+import { userId } from "../../../shared/constants/const.ts";
 
 export default function ResponsesPage() {
   const dispatch = useAppDispatch();

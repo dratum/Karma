@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-
+import '../styles.css'
 export default function Button(props: {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   srcPath?: string | undefined;
@@ -9,7 +9,7 @@ export default function Button(props: {
     <button
       onClick={props.onClick}
       className={
-        "flex flex-row gap-x-3 items-center shadow-md focus:outline-none transition duration-300 rounded-lg" +
+        "flex flex-row gap-x-3 items-center shadow-md focus:outline-none transition duration-300 rounded-lg " +
         " shadow-sm border-lime-600 hover:bg-lime-600 hover:text-white" +
         " hover:border-lime-600 bg-white text-lime-600 text-sm"
       }

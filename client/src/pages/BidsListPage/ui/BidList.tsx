@@ -1,11 +1,11 @@
 import { useAppSelector } from "../../../../hooks/redux.ts";
 import { AppDispatch } from "../../../../redux/store/store.ts";
 import { useEffect } from "react";
-import { getBids } from "../../../pages/BidsListPage/store/feature/bidsSlice.ts";
-import { getLikes } from "../store/features/likeBidsSlice.ts";
+import { getBids } from "../store/feature/bidsSlice.ts";
+import { getLikes } from "../store/feature/likeBidsSlice.ts";
 import { userId } from "../../../shared/constants/const.ts";
 import Bid from "../../../components/Bid/Bid/Bid.tsx";
-import NotFound from "../../../ui/notFound/NotFound.tsx";
+import NotFound from "../../../shared/ui/notFound/NotFound.tsx";
 
 interface ChildProps {
   dispatch: AppDispatch;

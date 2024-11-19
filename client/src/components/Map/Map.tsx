@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { v4 as uuidv4 } from "uuid";
-import $api from "../../http";
+import $api from "../../shared/api/http";
 import { BidType } from "../../../src/pages/BidsListPage/store/feature/bidsSlice";
 import { useNavigate } from "react-router-dom";
 import "./Map.css";

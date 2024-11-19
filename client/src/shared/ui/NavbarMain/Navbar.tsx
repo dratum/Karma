@@ -1,17 +1,15 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { AuthContext } from "../../../../main";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../../main.tsx";
 import { useContext, useState } from "react";
-import { activeLink, normalLink } from "../constants/links";
+import { activeLink, normalLink } from "./constants/links.ts";
 
-export default function Navbar() {
+export function Navbar() {
   const { authStore } = useContext(AuthContext);
   const token = localStorage.getItem("token");
   const [navBarState, setNavBarState] = useState<boolean>(false);
-  const location = useLocation();
-  const isActive = location.pathname.startsWith("/profile");
 
   return (
-    <header className='sticky inset-x-0 top-0 pt-5 pl-2 pr-2 pb-5 px-10 z-10'>
+    <header className='sticky p-5'>
       <div className='bg-white rounded-full shadow-md'>
         {token ? (
           <div className='mx-auto flex items-center justify-between p-1'>
@@ -31,7 +29,6 @@ export default function Navbar() {
                   Главная
                 </NavLink>
               </button>
-
               <button type='button'>
                 <NavLink
                   className={({ isActive }) =>
@@ -45,7 +42,8 @@ export default function Navbar() {
 
               <button type='button'>
                 <NavLink
-                  className={isActive ? activeLink : normalLink}
+                  className={({ isActive }) =>
+                    isActive ? activeLink : normalLink}
                   to='/profile/bio'
                 >
                   Моя страница
@@ -77,7 +75,7 @@ export default function Navbar() {
                 >
                   <img
                     src={"/img/log-out_1330264.png"}
-                    className={"w-[25px] mr-5"}
+                    width={'30rem'}
                     alt='logo'
                   />
                 </NavLink>

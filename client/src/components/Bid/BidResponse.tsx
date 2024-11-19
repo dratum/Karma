@@ -2,9 +2,9 @@ import { useAppDispatch } from "../../../hooks/redux.ts";
 import { cancelResponse } from "../../../features/userResponseSlice.ts";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import $api from "../../http/index.ts";
+import $api from "../../shared/api/http";
 import { BidType } from "../../pages/BidsListPage/store/feature/bidsSlice.ts";
-import Button from "../../ui/buttons/ButtonsWithIcons/Button.tsx";
+import Button from "../../shared/ui/buttons/ButtonsWithIcons/Button.tsx";
 
 export default function BidResponse({
   response,

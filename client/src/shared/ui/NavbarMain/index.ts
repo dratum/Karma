@@ -1,2 +1,1 @@
-import Navbar from "./components/Navbar";
-export { Navbar };
+export { Navbar } from "./Navbar.tsx";

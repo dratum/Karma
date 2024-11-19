@@ -1,3 +1,1 @@
-import LoginPage from "./components/LoginPage";
-
-export default LoginPage;
+export { LoginPage } from "./ui/LoginPage.tsx";

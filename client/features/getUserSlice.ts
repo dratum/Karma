@@ -1,6 +1,6 @@
 import { UserDataType } from "../src/components/ProfilePageWidgets/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import $api from "../src/shared/api/http";
 
 interface userState {
   user: UserDataType;
@@ -17,7 +17,7 @@ export const getUser = createAsyncThunk(
   "user/getUser",
   async (userId: string | null, { rejectWithValue }) => {
     try {
-      const user = await axios(
+      const user = await $api(
         `${import.meta.env.VITE_REACT_APP_API_URL}/profile`,
         {
           params: { userId },

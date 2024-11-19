@@ -62,7 +62,7 @@ function Messages({roomId}: roomId): JSX.Element {
     <div>
       <div className='flex flex-col h-[80vh] w-[56vw] bg-white rounded-lg p-2.5 bg-'>
         <div
-          className='h-[79vh] bg-[url("/public/svg/logo2.svg")] bg-center bg-no-repeat bg-[length:900px_600px]'
+          className='h-[79vh] bg-[url("/svg/logo2.svg")] bg-center bg-no-repeat bg-[length:900px_600px]'
         >
           <div className='h-[78vh] overflow-auto'>
           {

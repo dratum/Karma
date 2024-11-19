@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import NavBar from "../../../components/NavBarProfile/components/NavBar";
+import NavBar from '../../../shared/ui/NavBarProfile/index';
 
-export default function ProfilePage() {
+export function ProfilePage() {
   return (
     <>
       <NavBar />

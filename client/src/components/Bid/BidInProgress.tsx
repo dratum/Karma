@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Bid, completeUserBids } from "../../../features/bidsUserSlice.ts";
 import { useAppDispatch } from "../../../hooks/redux.ts";
 import { NavLink } from "react-router-dom";
-import $api from "../../http/index.ts";
-import { userId } from "../../constants/const.ts";
+import $api from "../../shared/api/http";
+import { userId } from "../../shared/constants/const.ts";
 
 export default function BidProgress({ bid }: { bid: Bid }) {
   const [nameExec, setNameExec] = useState("");

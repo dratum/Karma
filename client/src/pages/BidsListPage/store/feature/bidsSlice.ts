@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import $api from "../../../../http/";
+import $api from "../../../../shared/api/http/";
 
 export interface BidType {
   id: number;

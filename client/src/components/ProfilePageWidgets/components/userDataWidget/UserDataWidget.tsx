@@ -3,8 +3,8 @@ import EditProfileDataForm from "../editProfileDataForm/EditProfileDataForm";
 import { UserDataType } from "../../types";
 import { useAppDispatch } from "../../../../../hooks/redux";
 import { updateUser } from "../../../../../features/userEditProfileSlice";
-import Button from "../../../../ui/buttons/Button";
-import UserProfileData from "../../../../ui/userProfileData/UserProfileData";
+import Button from "../../../../shared/ui/buttons/Button";
+import UserProfileData from "../../../../shared/ui/userProfileData/UserProfileData";
 
 export default function UserDataWidget({ user }: { user: UserDataType }) {
   const dispatch = useAppDispatch();

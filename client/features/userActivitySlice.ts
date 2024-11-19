@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import $api from "../src/http";
+import $api from "../src/shared/api/http";
 
 export interface userActivityState {
   totalOrders: number;

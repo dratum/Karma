@@ -1,10 +1,9 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { JSX, useState } from "react";
-import SuccessModal from "../UI/Modal/SuccesModal/SuccessModal.tsx";
-import $api from "../../http";
+import SuccessModal from "../../shared/ui/Modal/SuccesModal/SuccessModal";
+import $api from "../../shared/api/http";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
-import React from "react";
 
 interface Form {
   title: string;

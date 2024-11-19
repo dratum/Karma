@@ -2,9 +2,9 @@ import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux.ts";
 import { useEffect } from "react";
 import { getUserBidsProgress } from "../../../../../features/bidsUserSlice.ts";
 import BidProgress from "../../../../components/Bid/BidInProgress.tsx";
-import NotFound from "../../../../ui/notFound/NotFound.tsx";
+import NotFound from "../../../../shared/ui/notFound/NotFound.tsx";
 
-function ProfileProgressBidPage(): JSX.Element {
+export function ProfileProgressBidPage(): JSX.Element {
   const bids = useAppSelector((state) => {
     return state.userBids.list;
   });
@@ -31,4 +31,4 @@ function ProfileProgressBidPage(): JSX.Element {
   );
 }
 
-export default ProfileProgressBidPage;
+

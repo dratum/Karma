@@ -1,10 +1,10 @@
-import { BidType } from "../../../features/bidsSlice.ts";
+import { BidType } from "../../pages/BidsListPage/store/feature/bidsSlice.ts";
 import { responseUserBid } from "../../../features/userResponseSlice.ts";
 import { useAppDispatch } from "../../../hooks/redux.ts";
 import ButtonResponse from "../ButtonResponse/ButtonResponse.tsx";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store/store.ts";
-import { likeBid, unlikeBid } from "../BidList/store/features/likeBidsSlice.ts";
+import { likeBid, unlikeBid } from "../../pages/BidsListPage/store/feature/likeBidsSlice.ts";
 
 export default function Bid({
   bid,

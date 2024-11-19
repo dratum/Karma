@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import $api from "../src/shared/api/http";
 
 export interface BidType {
   id: number;
@@ -30,10 +30,10 @@ const userId = localStorage.getItem("userId");
 export const responseUserBid = createAsyncThunk(
   "responses/changeBidStatus",
   async ({ userId, bidId, authorId, title }: ResponseType) => {
-    await axios.put(`${import.meta.env.VITE_REACT_APP_API_URL}/bids/${bidId}`, {
+    await $api.put(`${import.meta.env.VITE_REACT_APP_API_URL}/bids/${bidId}`, {
       status: "response",
     });
-    await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/responses`, {
+    await $api.post(`${import.meta.env.VITE_REACT_APP_API_URL}/responses`, {
       user_id: userId,
       bid_id: bidId,
       author_id: authorId,
@@ -48,7 +48,7 @@ export const getResponses = createAsyncThunk(
   "responses/getResponses",
   async (_, { rejectWithValue }) => {
     try {
-      const responses = await axios(
+      const responses = await $api(
         `${import.meta.env.VITE_REACT_APP_API_URL}/my-responses`,
         { params: { userId } }
       );
@@ -63,10 +63,10 @@ export const getResponses = createAsyncThunk(
 export const cancelResponse = createAsyncThunk(
   "responses/cancelResponse",
   async ({ userId, bidId }: { userId: string | null; bidId: number }) => {
-    await axios.delete(`${import.meta.env.VITE_REACT_APP_API_URL}/responses/complete`, {
+    await $api.delete(`${import.meta.env.VITE_REACT_APP_API_URL}/responses/complete`, {
       data: { user_id: userId, bid_id: bidId },
     });
-    await axios.put(`${import.meta.env.VITE_REACT_APP_API_URL}/bids/${bidId}`, {
+    await $api.put(`${import.meta.env.VITE_REACT_APP_API_URL}/bids/${bidId}`, {
       status: "create",
     });
     return { bidId };

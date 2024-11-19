@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import $api from "../src/http";
+import $api from "../src/shared/api/http";
 import { UserDataType } from "../src/components/ProfilePageWidgets/types";
 interface UserState {
   user: UserDataType;

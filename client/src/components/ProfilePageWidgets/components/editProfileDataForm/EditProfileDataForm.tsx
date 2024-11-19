@@ -4,8 +4,8 @@ import {
   saveUserData,
   updateUser,
 } from "../../../../../features/userEditProfileSlice";
-import { userId } from "../../../../constants/const";
-import Button from "../../../../ui/buttons/Button";
+import { userId } from "../../../../shared/constants/const";
+import Button from "../../../../shared/ui//buttons/Button";
 import { useState } from "react";
 
 interface EditProfileDataFormProps {

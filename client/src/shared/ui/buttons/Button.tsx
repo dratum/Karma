@@ -1,3 +1,4 @@
+import './styles.css'
 export default function Button(props: { label: string; onClick?: () => void }) {
   return (
     <button

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import $api from '../../http'
+import $api from '../../shared/api/http'
 import Certificate from './Certificate'
 
 interface Certificate {

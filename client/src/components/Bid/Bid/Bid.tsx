@@ -7,9 +7,9 @@ import { RootState } from "../../../../redux/store/store.ts";
 import {
   likeBid,
   unlikeBid,
-} from "../../../modules/BidList/store/features/likeBidsSlice.ts";
+} from "../../../pages/BidsListPage/store/feature/likeBidsSlice.ts";
 import { useEffect, useState } from "react";
-import $api from "../../../http";
+import $api from "../../../shared/api/http";
 import "./Bid.styles.css";
 
 export default function Bid({

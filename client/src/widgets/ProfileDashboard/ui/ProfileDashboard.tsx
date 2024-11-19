@@ -9,9 +9,9 @@ import {
   UserChartWidget,
   UserDataWidget,
   UserScoresWidget,
-} from "../../../components/ProfilePageWidgets/index.ts";
+} from "../../../components/ProfilePageWidgets";
 
-export default function ProfileDashboard() {
+export function ProfileDashboard() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userEdit.user);
   const totalOrders = useSelector(
