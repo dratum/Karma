@@ -6,7 +6,7 @@ import SearchInput from "../../../shared/ui/SearchInput/SearchInput";
 import Button from "../../../shared/ui/buttons/ButtonsWithIcons/Button";
 import React, { useState } from "react";
 import MapComponent from "../../../components/Map/Map.tsx";
-import {BidList} from "./BidList";
+import { BidList } from "./BidList";
 
 export function BidsListPage() {
   const [showMap, setShowMap] = useState(false);
@@ -20,7 +20,7 @@ export function BidsListPage() {
       <div className='flex justify-center items-end gap-x-5 mb-5 w-full'>
         <SearchInput onChange={handleChange} />
         <Button
-          label={"Показать на карте"}
+          label={showMap ? "Скрыть карту" : "Показать на карте"}
           onClick={() => setShowMap((prev) => !prev)}
           srcPath={"/svg/map.svg"}
         />

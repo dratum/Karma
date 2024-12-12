@@ -55,31 +55,30 @@ export default class AuthStore {
         password,
         phone
       );
-      console.log(response);
-      localStorage.setItem("token", response.data.accessToken);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      localStorage.setItem("userId", response.data.user.id);
-      this.setAuth(true);
-      this.setUser(response.data.user);
-      window.location.assign("/");
+      console.log(response); // посмотреть что содержит объект для условия
+      if (response.statusText === "OK") {
+        localStorage.setItem("token", response.data.accessToken);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        localStorage.setItem("userId", response.data.user.id);
+        this.setAuth(true);
+        this.setUser(response.data.user);
+        window.location.assign("/");
+      }
     } catch (error) {
-      console.log(
-        'Что-то пошло не так в файле "auth.store.ts, метод registration.'
-      );
+      console.error({ message: error });
     }
   }
 
   async logout() {
     try {
+      await AuthService.logout();
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       localStorage.removeItem("userId");
-      await AuthService.logout();
-
       this.setAuth(false);
       this.setUser({} as IUser);
     } catch (error) {
-      console.log('Что-то пошло не так в файле "auth.store.ts, метод logout.');
+      console.log("Не удалось выполнить выход из системы");
     }
   }
 
@@ -92,7 +91,6 @@ export default class AuthStore {
           withCredentials: true,
         }
       );
-
       localStorage.setItem("token", response.data.accessToken);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       localStorage.setItem("userId", response.data.user.id);

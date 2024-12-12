@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import $api from "../src/shared/api/http";
 
-
 export interface Bid {
   id: number;
   title: string;
@@ -33,8 +32,8 @@ export const getUserBids = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const userBids = await $api(
-        `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/active`,
-        { params: { userId } }
+        `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids`,
+        { params: { userId, status: "create" } }
       );
       return userBids.data;
     } catch (error) {
@@ -48,8 +47,8 @@ export const getUserBidsProgress = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const userBids = await $api(
-        `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/progress`,
-        { params: { userId } }
+        `${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids`,
+        { params: { userId, status: "response" } }
       );
       return userBids.data;
     } catch (error) {

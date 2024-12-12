@@ -10,18 +10,21 @@ const { User, Message } = require("./db/models");
 
 const authMiddleware = require("./middleware/auth-middleware");
 //GET
-const bidsRouter = require("./routes/views/bids.router");
+
 const profileRouter = require("./routes/views/profile.bio.router");
-const profileActiveBidsRouter = require("./routes/views/profile.active.bid.router");
+
 const likeRouter = require("./routes/views/likes.router");
+
 const responsesRouter = require("./routes/views/myResponses.router");
-const profileProgressBidsRouter = require("./routes/views/profile.progress.bid.router");
-const profileCompleteBidsRouter = require("./routes/views/profile.complete.bid.router");
+
 const chatRouter = require("./routes/chat/chat.route");
+const idForChatRoom = require("./routes/views/idForChatRoom.router");
+
 const ordersRouter = require("./routes/views/profile.bio.order.router");
+
 const namesRouter = require("./routes/views/names.bid.router");
 const nameExecRouter = require("./routes/views/namesExec.bid.router");
-const idForChatRoom = require("./routes/views/idForChatRoom.router");
+
 //API
 const bidApiRouter = require("./routes/API/bid.api.route");
 const responseApiRouter = require("./routes/API/response.api.route");
@@ -46,20 +49,18 @@ serverConfig(app);
 //GET
 app.use(
   "/api",
-  bidsRouter,
+  router,
   likeRouter,
   responsesRouter,
   chatRouter,
   namesRouter,
   nameExecRouter,
-  router,
   idForChatRoom
 );
 app.use("/api/profile", profileRouter);
-app.use("/api/profile/bids/active", profileActiveBidsRouter);
-app.use("/api/profile/bids/progress", profileProgressBidsRouter);
-app.use("/api/profile/bids/complete", profileCompleteBidsRouter);
+
 app.use("/api/profile/bio", ordersRouter);
+
 //API
 app.use("/api/profile", userEditProfileRouter);
 
@@ -83,7 +84,7 @@ io.on("connection", (socket) => {
   socket.on("join", async ({ room, user }) => {
     socket.join(room);
     const messages = await Message.findAll({ where: { room_id: room } });
-    const getUser = await User.findOne({ where: { id: user } });
+    // const getUser = await User.findOne({ where: { id: user } });
 
     socket.emit("messages", {
       data: messages,

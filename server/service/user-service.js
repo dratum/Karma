@@ -1,12 +1,10 @@
-const { User, Bid } = require("../db/models");
-const bcrypt = require("bcrypt");
 const uuid = require("uuid");
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const UserDto = require("../dtos/user-dto");
+const { User, Bid } = require("../db/models");
+const ApiError = require("../exceptions/api-error");
 const mailService = require("../service/mail-service");
 const tokenService = require("../service/token-service");
-const UserDto = require("../dtos/user-dto");
-const ApiError = require("../exceptions/api-error");
-const { where } = require("sequelize");
 
 class UserService {
   async registration(name, dateOfBirth, email, password, phone) {
@@ -90,11 +88,6 @@ class UserService {
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
     return { ...tokens, user: userDto };
-  }
-
-  async getAllBids() {
-    const bids = await Bid.findAll();
-    return bids;
   }
 
   async activate(activationLink) {

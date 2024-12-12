@@ -17,8 +17,8 @@ export function ProfileCompleteBidPage(): JSX.Element {
   const [completeBids, setCompleteBids] = useState<BidProfileType[]>([]);
 
   useEffect(() => {
-    axios(`${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids/complete`, {
-      params: { userId },
+    axios(`${import.meta.env.VITE_REACT_APP_API_URL}/profile/bids`, {
+      params: { userId, status: "complete" },
     }).then((res) => setCompleteBids(res.data));
   }, []);
 

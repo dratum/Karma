@@ -1,72 +1,22 @@
 import { Route, Routes } from "react-router";
-
-import { lazy } from "react";
-
-const BidForm = lazy(() => import("../BidForm/BidForm.tsx"));
-const BidPage = lazy(() => import("../Pages/BidPage.tsx"));
-const ChatPage = lazy(() => import("../ChatPage/ChatPage.tsx"));
-
-const MainPage = lazy(() =>
-  import("../../pages/MainPage/index.ts").then((module) => ({
-    default: module.MainPage,
-  }))
-);
-const LoginPage = lazy(() =>
-  import("../../pages/LoginPage/index.ts").then((module) => ({
-    default: module.LoginPage,
-  }))
-);
-const ProfilePage = lazy(() =>
-  import("../../pages/ProfilePage/index.ts").then((module) => ({
-    default: module.ProfilePage,
-  }))
-);
-const BidsListPage = lazy(() =>
-  import("../../pages/BidsListPage/index.ts").then((module) => ({
-    default: module.BidsListPage,
-  }))
-);
-const RegistrationPage = lazy(() =>
-  import("../../pages/RegistrationPage/index.tsx").then((module) => ({
-    default: module.RegistrationPage,
-  }))
-);
-
-const MapComponent = lazy(() => import("../Map/Map.tsx"));
-const CertificateList = lazy(
-  () => import("../Certificate/CertificateList.tsx")
-);
-
-const ProfileDashboard = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.ProfileDashboard,
-  }))
-);
-const ProfileBidsRouter = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.ProfileBidsRouter,
-  }))
-);
-const ProfileActiveBidPage = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.ProfileActiveBidPage,
-  }))
-);
-const ProfileCompleteBidPage = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.ProfileCompleteBidPage,
-  }))
-);
-const ProfileProgressBidPage = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.ProfileProgressBidPage,
-  }))
-);
-const UserResponsesList = lazy(() =>
-  import("../../widgets/index.ts").then((module) => ({
-    default: module.UserResponsesList,
-  }))
-);
+import {
+  ProfileActiveBidPage,
+  ProfileBidsRouter,
+  ProfileCompleteBidPage,
+  ProfileDashboard,
+  ProfileProgressBidPage,
+  UserResponsesList,
+} from "../../widgets";
+import MapComponent from "../Map/Map";
+import BidPage from "../Pages/BidPage";
+import BidForm from "../BidForm/BidForm";
+import { MainPage } from "../../pages/MainPage";
+import ChatPage from "../ChatPage/ChatPage";
+import { LoginPage } from "../../pages/LoginPage";
+import { ProfilePage } from "../../pages/ProfilePage";
+import { BidsListPage } from "../../pages/BidsListPage";
+import CertificateList from "../Certificate/CertificateList";
+import { RegistrationPage } from "../../pages/RegistrationPage";
 
 export function AppRouter() {
   return (

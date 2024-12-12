@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../main.tsx";
 
-function RegisterForm() {
+export function RegisterForm() {
   const [name, setName] = useState<string>("");
   const [dateOfBirth, setDateOfBirth] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -120,5 +120,3 @@ function RegisterForm() {
     </>
   );
 }
-
-export default RegisterForm;
