@@ -8,6 +8,7 @@ const profileController = require("../controllers/profile-controller");
 const bidController = require("../controllers/bid-controller");
 
 router.get("/bids", bidController.getAllBids);
+router.get("/likes", bidController.getAllLikes);
 router.get("/refresh", userController.refresh);
 router.get("/activate/:link", userController.activate);
 router.get("/profile/bids", profileController.getSourceBids);

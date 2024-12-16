@@ -1,19 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const serverConfig = require("./config/serverConfig");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
 const router = require("./router/index");
 const http = require("http");
 const { Server } = require("socket.io");
 const { User, Message } = require("./db/models");
 
-const authMiddleware = require("./middleware/auth-middleware");
 //GET
 
 const profileRouter = require("./routes/views/profile.bio.router");
-
-const likeRouter = require("./routes/views/likes.router");
 
 const responsesRouter = require("./routes/views/myResponses.router");
 
@@ -50,29 +45,21 @@ serverConfig(app);
 app.use(
   "/api",
   router,
-  likeRouter,
   responsesRouter,
   chatRouter,
   namesRouter,
   nameExecRouter,
-  idForChatRoom
-);
-app.use("/api/profile", profileRouter);
-
-app.use("/api/profile/bio", ordersRouter);
-
-//API
-app.use("/api/profile", userEditProfileRouter);
-
-app.use(
-  "/api",
+  idForChatRoom,
+  profileRouter,
+  ordersRouter,
+  userEditProfileRouter,
   bidApiRouter,
   responseApiRouter,
   changeStatusBIdRouter,
   likeApiRouter,
-  profileActiveBidsApiRouter
+  profileActiveBidsApiRouter,
+  certificatesRouter
 );
-app.use("/api/certificates", certificatesRouter);
 
 app.listen(PORT, () => {
   console.log("Listening on port " + PORT);

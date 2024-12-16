@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Response, Bid } = require("../../db/models");
 
-router.get("/", async (req, res) => {
+router.get("/profile/bio", async (req, res) => {
   const { userId } = req.query;
   // console.log(userId);
   try {

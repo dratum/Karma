@@ -1,8 +1,8 @@
-const { Bid } = require("../db/models");
+const { Bid, Like } = require("../db/models");
 const { Op } = require("sequelize");
 
 class BidService {
-  async getAllBids(userId) {
+  async getSourceBids(userId) {
     const bids = await Bid.findAll({
       where: {
         status: "create",
@@ -13,6 +13,11 @@ class BidService {
       raw: true,
     });
     return bids;
+  }
+
+  async getLikes() {
+    const likes = await Like.findAll({ raw: true });
+    return likes;
   }
 }
 module.exports = new BidService();
