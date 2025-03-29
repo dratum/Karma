@@ -6,6 +6,7 @@ const authMiddleware = require("../middleware/auth-middleware");
 const MultiGeocoder = require("multi-geocoder");
 const profileController = require("../controllers/profile-controller");
 const bidController = require("../controllers/bid-controller");
+const bidService = require("../service/bid-service");
 
 router.get("/bids", bidController.getAllBids);
 router.get("/likes", bidController.getAllLikes);
@@ -20,6 +21,9 @@ router.post(
 );
 router.post("/login", userController.login);
 router.post("/logout", userController.logout);
+router.post("/bids/:id/like", bidController.like);
+
+router.delete("/bids/:id/like", bidController.unlike);
 
 // router.get('/bids', authMiddleware, userController.getBids)
 // router.get('/bids', userController.getBids)

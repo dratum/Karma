@@ -4,8 +4,7 @@ const serverConfig = require("./config/serverConfig");
 const router = require("./router/index");
 const http = require("http");
 const { Server } = require("socket.io");
-const { User, Message } = require("./db/models");
-
+const { Message } = require("./db/models");
 //GET
 
 const profileRouter = require("./routes/views/profile.bio.router");
@@ -56,7 +55,6 @@ app.use(
   bidApiRouter,
   responseApiRouter,
   changeStatusBIdRouter,
-  likeApiRouter,
   profileActiveBidsApiRouter,
   certificatesRouter
 );
