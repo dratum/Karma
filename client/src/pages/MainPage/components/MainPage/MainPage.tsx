@@ -19,7 +19,7 @@ export default function MainPage() {
             станьте исполнителем сами
           </span>
         </div>
-        <div className='flex justify-between w-full '>
+        <div className='flex justify-between w-full'>
           <Link to={"/bid-form"}>
             <Button label={"Нужна помощь"} />
           </Link>

@@ -1,6 +1,5 @@
-import { BidType } from "../../../features/bidsSlice.ts";
 import { useAppDispatch } from "../../../hooks/redux.ts";
-import { cancelResponse } from "../../../features/userResponseSlice.ts";
+import { cancelResponse, BidType } from "../../../features/userResponseSlice.ts";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import $api from "../../http/index.ts";
@@ -28,7 +27,7 @@ export default function BidResponse({
     $api(`${import.meta.env.VITE_REACT_APP_API_URL}/names-customers`, {
       params: { authorId: response.author_id },
     }).then((res) => setName(res.data));
-  }, []);
+  }, [response.author_id, response.id]);
   return (
     <>
       <div

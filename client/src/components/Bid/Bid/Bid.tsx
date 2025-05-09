@@ -1,5 +1,4 @@
-import { BidType } from "../../../../features/bidsSlice.ts";
-import { responseUserBid } from "../../../../features/userResponseSlice.ts";
+import { BidType, responseUserBid } from "../../../../features/userResponseSlice.ts";
 import { useAppDispatch } from "../../../../hooks/redux.ts";
 import ButtonResponse from "../../ButtonResponse/ButtonResponse.tsx";
 import { useSelector } from "react-redux";

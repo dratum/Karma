@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import io from "socket.io-client";
 
 export interface MessageType {
@@ -10,12 +10,14 @@ export interface MessageType {
   createdAt: Date,
   updatedAt: Date
 }
+interface Props {
+   roomId: string
+ }
+export type MessagesType = MessageType[];
 
-export type MessagesType = [MessageType] | any
 
-export type roomId = any
-
-function Messages({roomId}: roomId): JSX.Element {
+function Messages(props: Props): JSX.Element {
+  const { roomId } = props;
   const [messages, setMessages] = useState<MessagesType>([])
   const [newMessage, setNewMessage] = useState('')
 
@@ -23,7 +25,7 @@ function Messages({roomId}: roomId): JSX.Element {
 
   const socket = io(`${import.meta.env.VITE_REACT_APP_SOCKET_URL}`);
 
-  const inputHandler = (event: any) =>
+  const inputHandler = (event: ChangeEvent<HTMLInputElement>) =>
     setNewMessage(event.target.value)
 
   const buttonHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -46,13 +48,13 @@ function Messages({roomId}: roomId): JSX.Element {
       user: userId
     }
     socket.emit('join', searchParams)
-  }, [])
+  }, [roomId, socket, userId])
 
   useEffect(() => {
     socket.on('messages', ({data}) => {
       setMessages(data)
     })
-  }, [messages])
+  }, [messages, socket])
 
   socket.on('message', (response) => {
     setMessages((messages: MessagesType) => [...messages, response.data.messageCreate])

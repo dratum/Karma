@@ -20,7 +20,7 @@ export default function BidProgress({ bid }: { bid: Bid }) {
     $api(`${import.meta.env.VITE_REACT_APP_API_URL}/names-exec`, {
       params: { bidId: bid.id },
     }).then((res) => setNameExec(res.data));
-  }, []);
+  }, [bid.id]);
 
   return (
     <>
