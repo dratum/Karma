@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import $api from "../../http";
-import { BidType } from "../../../features/bidsSlice";
+import { BidType } from "../../../features/userResponseSlice";
 import MapBid from "../MapBid/MapBid.tsx";
 
 export default function BidPage () {
@@ -24,7 +24,7 @@ export default function BidPage () {
         }
         fetchData();
 
-      }, []);
+      }, [id]);
 
 
       

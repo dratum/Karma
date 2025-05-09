@@ -20,6 +20,7 @@ export default function Bid({
 }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState(false);
+  
   const dispatch = useAppDispatch();
   const likes = useSelector(
     (state: RootState) =>
@@ -49,11 +50,12 @@ export default function Bid({
       })
     );
   };
+
   useEffect(() => {
     $api(`${import.meta.env.VITE_REACT_APP_API_URL}/names-customers`, {
       params: { authorId: bid.author_id },
     }).then((res) => setName(res.data));
-  }, []);
+  }, [bid.author_id]);
 
   return (
     <>
@@ -77,18 +79,16 @@ export default function Bid({
           <button
             className='underline'
             onClick={() =>
-              description ? setDescription(false) : setDescription(true)
+               setDescription(!description)
             }
           >
             Подробнее
           </button>
         </div>
-        {description ? (
+        {description && (
           <div className='flex border-double border-4 p-2 w-[400px]'>
             <p className='italic font-sm text-gray-800 '>{bid.description}</p>
           </div>
-        ) : (
-          <></>
         )}
 
         <div className={"flex justify-between items-center gap-x-3 -mt-3"}>

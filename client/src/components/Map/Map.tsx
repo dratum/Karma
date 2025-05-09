@@ -1,12 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { v4 as uuidv4 } from "uuid";
 import $api from "../../http";
-import { BidType } from "../../../features/bidsSlice";
 import { useNavigate } from "react-router-dom";
 import "./Map.css";
-
+import { BidType } from "../../../features/userResponseSlice";
+import { MAP_URL } from "./consts";
 const center = [55.76, 37.64];
 
 function MapComponent(): JSX.Element {
@@ -25,7 +24,7 @@ function MapComponent(): JSX.Element {
 
       const promises = bidObjects.map(async (bidObj: BidType) => {
         const response = await fetch(
-          `https://geocode-maps.yandex.ru/1.x/?format=json&apikey=53ab01a5-fcd6-4af6-8795-4f7d5fdf4504&geocode=${encodeURIComponent(
+          `${MAP_URL}${encodeURIComponent(
             bidObj.address
           )}`
         );
